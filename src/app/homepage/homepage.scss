@@ -1,0 +1,23 @@
+.catalog{
+  h1{
+    margin-bottom: 5rem;
+  }
+  .top-page{
+    border: 1px solid grey;
+    .search{
+      padding-top: 3rem;
+    }
+    .checkboxes{
+      border-right: 1px solid grey;
+    }
+  }
+  .list{
+    .row{
+      margin-bottom: 2rem;
+      img{
+        width: 50%;
+        height: 50%;
+      }
+    }
+  }
+}

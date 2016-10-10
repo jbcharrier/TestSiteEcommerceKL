@@ -1,0 +1,47 @@
+.container.catalog
+  main.row.expanded.align-middle
+    .small-12.columns
+      .row.expanded.align-middle
+        .small-10.small-offset-1
+          h1 Page Catalogue
+          .small-12.columns.top-page
+            .small-6.columns.checkboxes
+              .small-6.columns
+                h5 Trier par tag:
+                div
+                  input(id="tag1" type="checkbox" ng-model="filterByTag1" ng-true-value="'tag1'" ng-false-value="''")
+                  label(for="tag1") tag1
+                div
+                  input(id="tag2" type="checkbox" ng-model="filterByTag2" ng-true-value="'tag2'" ng-false-value="''")
+                  label(for="tag2") tag2
+                div
+                  input(id="tag3" type="checkbox" ng-model="filterByTag3" ng-true-value="'tag3'" ng-false-value="''")
+                  label(for="tag3") tag3
+              .small-6.columns
+                h5 Trier par :
+                div
+                  input(name="sort" id="myprice" type="radio" value="-price" ng-model="mobiles.filterByPrice")
+                  label(for="myprice") Prix
+                div
+                  input(name="sort" id="myweight" type="radio" value="-weight" ng-model="mobiles.filterByWeight")
+                  label(for="myweight") Poids
+            .small-6.columns.search
+                  div.input-group
+                    input.input-group-field(type="text" placeholder="Rechercher" ng-model="filterBySearch")
+                    div.input-group-button
+                      input.button(type="submit" value="Submit")
+          .small-12.columns.list
+            .row.expanded.align-middle(ng-repeat="mobile in mobiles.listMobiles | filter:filterBySearch | filter:{tags: filterByTag1} | filter:{tags: filterByTag2} | filter:{tags: filterByTag3} | orderBy:mobiles.filterByPrice | orderBy:mobiles.filterByWeight")
+              .small-12.columns
+                .small-2.columns
+                  img(src="../../assets/images/" + "{{mobile.img}}")
+                .small-5.columns
+                  div
+                    p {{mobile.name}}
+                  div
+                    span(ng-repeat="tag in mobile.tags") {{tag}}&nbsp;
+                .small-5.columns
+                  div
+                    span {{mobile.price}} - {{mobile.weight}}
+                  div
+                    a(href="#/{{mobile.name}}") En savoir plus

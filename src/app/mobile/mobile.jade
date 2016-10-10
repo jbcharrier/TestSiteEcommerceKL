@@ -1,0 +1,15 @@
+.container.catalog
+  main.row.expanded.align-middle
+    .small-12.columns
+      .row.expanded.align-middle
+        .small-10.small-offset-1
+          h1 Page produit
+          .small-12.columns
+            .small-6.columns
+              img(src="../../assets/images/" + "{{mobile.myMobile.img}}")
+            .small-6.columns
+              h4 {{mobile.myMobile.name}}
+              p Prix : {{mobile.myMobile.price}}
+              p Poids : {{mobile.myMobile.weight}}
+              div
+                span(ng-repeat="tag in mobile.myMobile.tags") {{tag}} &nbsp;
