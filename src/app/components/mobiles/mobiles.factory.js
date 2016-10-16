@@ -7,24 +7,18 @@ export class MobilesFactory {
 
     this.path='http://localhost:3002/phones/';
 
-    this.listMobiles = $resource(this.path);
+    this.ListMobiles = $resource(this.path);
 
-    this.mobile = $resource(this.path + ':name');
+    this.Mobile = $resource(this.path + ':name');
 
-    this.getList = function () {
-      return this.listMobiles.query();
+
+    this.getMyList = function () {
+      return this.ListMobiles.query();
     };
 
-    this.getMobile = function (name) {
+    this.getMyMobile = function (name) {
       console.log('name', name);
-      return this.mobile.get({name: name});
+      return this.Mobile.get({name: name});
     };
-  }
-  getMyList () {
-    return this.getList();
-  }
-
-  getMyMobile (name) {
-    return this.getMobile(name);
   }
 }
